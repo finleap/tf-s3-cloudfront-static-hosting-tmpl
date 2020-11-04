@@ -1,0 +1,6 @@
+name                = "my_website"
+aws_region          = "eu-central-1"
+bucket_name         = "website.com"
+domain_name         = "website.com"
+zone_id             = "Z00000000000000000000"
+tsl_certificate_arn = "arn:aws:acm:us-east-1:000000000000:certificate/00000000-0000-0000-0000-000000000000"

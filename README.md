@@ -14,6 +14,7 @@ This setup creates the following resources:
 The S3 bucket is configured with a Cloudfront origin access id, so the hosted site cannot be accessed directly via the S3 URL, but only via it's Cloudfront distribution.
 
 ![example](https://miro.medium.com/max/1288/0*GOJnOMi5MiIIM8JG.png "Infrastructure illustration")
+
 (Source: https://itnext.io/static-website-over-https-with-s3-cloudfront-gatsby-continuously-delivered-b2b33bb7fa29)
 
 ### Get Started building your own infrastructure

@@ -24,3 +24,21 @@ The S3 bucket is configured with a Cloudfront origin access id, so the hosted si
 - execute `terraform init`, it will initialize your local terraform and connect it to the state store, and it will download all the necessary providers
 - execute `terraform plan -var-file="secrets.tfvars" -out="out.plan"` - this will calculate the changes terraform has to apply and creates a plan. If there are changes, you will see them. Check if any of the changes are expected, especially deletion of infrastructure.
 - if everything looks good, you can execute the changes with `terraform apply out.plan`
+
+### s3_sync.sh
+
+This script can be used to deploy the latest version of your site to the S3 bucket. It sets the caching headers right and makes a cloudfront invalidation unnecessary.
+
+Usage example with github actions:
+
+```
+- name: Upload to S3 bucket 🚀
+    id: upload-to-s3
+    env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: eu-central-1
+        AWS_S3_BUCKET_NAME: website.com
+    run: |
+        bash s3_sync.sh --bucket=$AWS_S3_BUCKET_NAME --source-folder=dist
+```
